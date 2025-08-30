@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import todo_icon from "../assets/todo_icon.svg";
-import ToDoItems from "./ToDoItems";
+import ToDoItem from "./ToDoItem";
 
 function ToDo() {
   const [toDoList, setToDoList] = useState([])
@@ -21,6 +21,10 @@ function ToDo() {
 
     setToDoList([...toDoList, newToDo]);
     inputRef.current.value = "";
+  }
+
+  function deleteToDo(id) {
+    setToDoList(toDoList.filter((item) => item.id !== id));
   }
 
   return (
@@ -49,7 +53,13 @@ function ToDo() {
       <div>
         {toDoList.map((item, index)=>{
           return (
-            <ToDoItems key={index} text={item.text} id={item.id} isComplete={item.isComplete}/>
+            <ToDoItem
+              key={index}
+              text={item.text}
+              id={item.id}
+              isComplete={item.isComplete}
+              deleteToDo={deleteToDo}
+            />
           )
         })}
       </div>

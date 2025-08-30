@@ -4,8 +4,8 @@ import delete_icon from "../assets/delete_icon.svg";
 
 function ToDoItem({text, id, isComplete, deleteToDo, toggle}) {
   return (
-    <div className="flex items-center my-3 gap-2" onClick={()=>{toggle(id)}}>
-      <div className="flex flex-1 items-center cursor-pointer">
+    <div className="flex items-center my-3 gap-2">
+      <div className="flex flex-1 items-center cursor-pointer" onClick={()=>{toggle(id)}}>
         <img className="w-7" src={isComplete ? tick : not_tick} alt=""/>
         <p className={`text-slate-700 ml-4 text-[17px] decoration-slate-500 ${isComplete ? "line-through": ""}`}>{text}</p>
       </div>

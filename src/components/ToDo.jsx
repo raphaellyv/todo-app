@@ -3,7 +3,8 @@ import todo_icon from "../assets/todo_icon.svg";
 import ToDoItem from "./ToDoItem";
 
 function ToDo() {
-  const [toDoList, setToDoList] = useState([])
+  const [toDoList, setToDoList] = useState(localStorage.getItem("toDos")?
+    JSON.parse(localStorage.getItem("toDos")) : [])
   const inputRef = useRef();
 
   function add() {
@@ -32,11 +33,13 @@ function ToDo() {
       if(item.id === id){
         return {...item, isComplete: !item.isComplete}
       }
-      return item
+      return item;
     }))
   }
 
-  useEffect(()=>{console.log(toDoList)}, [toDoList])
+  useEffect(()=>{
+    localStorage.setItem("toDos", JSON.stringify(toDoList));
+  }, [toDoList])
 
   return (
     <div className="bg-white place-self-center w-11/12 max-w-md flex flex-col p-7 min-h-[550px] rounded-xl">

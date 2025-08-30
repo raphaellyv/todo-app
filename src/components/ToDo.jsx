@@ -1,10 +1,11 @@
-import toDoIcon from "../assets/todo-icon.svg"
+import todo_icon from "../assets/todo_icon.svg"
+import ToDoItems from "./ToDoItems"
 
 function ToDo() {
   return (
     <div className="bg-white place-self-center w-11/12 max-w-md flex flex-col p-7 min-h-[550px] rounded-xl">
       <div className="flex items-center mt-7 gap-2">
-        <img className="w-8" src={toDoIcon} alt=""/>
+        <img className="w-8" src={todo_icon} alt=""/>
         <h1 className="text-3xl font-semibold">To-Do List</h1>
       </div>
 
@@ -23,7 +24,7 @@ function ToDo() {
       </div>
 
       <div>
-
+        <ToDoItems/>
       </div>
     </div>
   )

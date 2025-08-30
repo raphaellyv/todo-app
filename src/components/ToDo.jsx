@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import todo_icon from "../assets/todo_icon.svg";
 import ToDoItem from "./ToDoItem";
 
@@ -26,6 +26,17 @@ function ToDo() {
   function deleteToDo(id) {
     setToDoList(toDoList.filter((item) => item.id !== id));
   }
+
+  function toggle(id) {
+    setToDoList(toDoList.map((item)=>{
+      if(item.id === id){
+        return {...item, isComplete: !item.isComplete}
+      }
+      return item
+    }))
+  }
+
+  useEffect(()=>{console.log(toDoList)}, [toDoList])
 
   return (
     <div className="bg-white place-self-center w-11/12 max-w-md flex flex-col p-7 min-h-[550px] rounded-xl">
@@ -59,6 +70,7 @@ function ToDo() {
               id={item.id}
               isComplete={item.isComplete}
               deleteToDo={deleteToDo}
+              toggle={toggle}
             />
           )
         })}

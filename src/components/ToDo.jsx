@@ -24,6 +24,12 @@ function ToDo() {
     inputRef.current.value = "";
   }
 
+  function addOnEnter(event) {
+    if (event.key === 'Enter') {
+      add();
+    }
+  }
+
   function deleteToDo(id) {
     setToDoList(toDoList.filter((item) => item.id !== id));
   }
@@ -54,6 +60,7 @@ function ToDo() {
           className="bg-transparent border-0 outline-none flex-1 h-14 pl-6 pr-2 placeholder:text-slate-600"
           type="text"
           placeholder="Add your task"
+          onKeyDown={addOnEnter}
         >
         </input>
         <button

@@ -11,6 +11,7 @@ To-do list web application developed with React JS and Tailwind CSS.
 - Add task with the add button.
 - Add task pressing the Enter key.
 - Mark task as done.
+- Delete task.
 - Save tasklist in the browser.
 
 ![To-Do List App](image.png)
